@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "miniperf"
+requires-python = '>=3.6'
+authors = [{name = "Andy", email = "andy@example.com"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "pywebview",
+    "requests",
+    "loguru"
+]
+
+[project.scripts]
+miniperf = "miniperf.app"
+
+[tool.pip-tools]
+upgrade = true
+header = false
+annotation-style = "line"
+strip-extras = true
+allow-unsafe = true
+
+[tool.build-system]
+include = [
+    "miniperf/ui/dist/*",    
+]
+
+[tool.setuptools]
+include-package-data = false
+packages = ["miniperf"]
+
+[tool.setuptools.package-data]
+"miniperf.asserts" = ["**/*.exe", "**/*.so"]

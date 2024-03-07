@@ -1,0 +1,178 @@
+.container {
+  --drag-line-width: 5px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.headerContain {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  /* background-color: #1f1f1f; */
+  background-color: rgb(38, 38, 38);
+  /* box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12); */
+}
+
+.contxtContain {
+  width: 100%;
+  height: calc(100% - 54px);
+  display: flex;
+}
+
+.leftContain {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(28, 28, 29);
+  overflow: auto;
+  /* border-inline-end: 1px solid rgb(255 244 244 / 12%); */
+  flex-shrink: 0;
+  min-width: 15%;
+  max-width: 65%;
+}
+
+.verticalLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--drag-line-width);
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s linear;
+}
+
+.verticalLine:hover {
+  background-color: #1668dc;
+  cursor: col-resize;
+}
+
+.middleContain {
+  width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.middleTopContain {
+  flex: 1;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.middleBottomContain {
+  /*height: 35%;*/
+  min-height: 10%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.fileTitle {
+  height: 32px;
+  position: sticky;
+  top: 0;
+  padding: 5px 15px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(28, 28, 29);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.fileListWrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 15px;
+  margin-right: var(--drag-line-width);
+  height: calc(100% - 42px);
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: auto;
+    box-shadow: 0.1px 0.1px 1px 0 inset;
+}
+
+.fileListWrap::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fileListWrap:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.consoleContent::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.consoleContent:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.fileItem {
+  cursor: pointer;
+  text-align: left;
+  border-radius: 0;
+  border-block-end: 1px solid rgba(253, 253, 253, 0.12) ;
+}
+
+.codeTitle {
+  padding: 5px 20px;
+  /* background-color: #1e1e1e; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: text;
+}
+
+.codeHeight {
+  flex: 1;
+  height: 0;
+}
+
+.justifyLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s linear;
+}
+
+.justifyLine:hover {
+  background-color: #1668dc;
+  cursor: row-resize;
+}
+
+.consoleTitle {
+  padding: 5px 20px;
+  border-top: 1px solid rgb(255 244 244 / 20%);
+}
+
+.consoleTitleItem {
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.consoleContent {
+  flex: 1;
+  overflow: auto;
+  padding: 10px 20px;
+  user-select: text;
+}
+
+.consoleItem {
+  margin-bottom: 3px;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
