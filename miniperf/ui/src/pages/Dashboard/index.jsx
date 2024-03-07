@@ -54,6 +54,7 @@ export const Dashboard = () => {
 
           const { series, xAxis, yAxis } = gpuLineData;
 
+          // useMemoizedFn, this is ok
           const newSeriesData = series.map((line, index) => {
             const newTemp = Number(res[index]) / 1000;
             console.log(line.data.length, res, index)
@@ -64,35 +65,23 @@ export const Dashboard = () => {
           });
           setGpuLineData({ ...gpuLineData, series: newSeriesData });
 
-          // var i = 0;
-          // new_data.forEach((element) => {
-          //   series[i++].data.push(Number(element) / 1000);
-          // });
+          // useMemoizedFn, this is not ok
+          /*
+          var i = 0;
+          new_data.forEach((element) => {
+            series[i++].data.push(Number(element) / 1000);
+          });
 
-          // if (series[0].data.length > xAxis.max) {
-          //   xAxis.max *= 2;
-          // }
+          if (series[0].data.length > xAxis.max) {
+            xAxis.max *= 2;
+          }
 
-          // setGpuLineData({
-          //   ...gpuLineData,
-          //   series: [...series],
-          //   xAxis: xAxis,
-          // });
-
-          // console.log(series)
-          // setGpuLineData({ ...gpuLineData, series: series })
-
-          // console.log(state.series[0])
-          // setGpuLineData({ type: 'updateData', payload: { series, xAxis, yAxis } });
-
-          // setGpuLineData(
-          //   { series: [...series], xAxis: { ...xAxis } }
-          // );
-          // if (series[0].data.length > xAxis.max) {
-          //   xAxis.max *= 2;
-          // }
-          // console.log(series)
-
+          setGpuLineData({
+            ...gpuLineData,
+            series: [...series],
+            xAxis: xAxis,
+          });
+          */        
         });
       })
       .catch((error) => {
